@@ -18,7 +18,7 @@ ATCommands::ATCommands()
 {
 }
 
-void ATCommands::begin(Stream *stream, const at_command_t *commands, uint32_t size, const uint16_t bufferSize, const char *terminator = "\r\n")
+void ATCommands::begin(Stream *stream, const at_command_t *commands, uint32_t size, const uint16_t bufferSize, const char *terminator)
 {
     this->serial = stream;
     this->term = terminator;
