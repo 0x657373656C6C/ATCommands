@@ -290,7 +290,7 @@ AT_COMMANDS_ERRORS ATCommands::update()
             {
                 this->error();
                 clearBuffer();
-                return;
+                return AT_COMMANDS_ERROR_SYNTAX;;
             }
 
             // process the command
@@ -356,6 +356,7 @@ bool ATCommands::registerCommands(const at_command_t *commands, uint32_t size)
 {
     atCommands = commands;
     numberOfCommands = (uint16_t)(size / sizeof(at_command_t));
+    return true;
 }
 
 /**
