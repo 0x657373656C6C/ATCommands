@@ -229,6 +229,8 @@ AT_COMMANDS_ERRORS ATCommands::update()
     while (serial->available() > 0)
     {
         int ch = serial->read();
+        if(ch == -1)
+            break;
 
 #ifdef AT_COMMANDS_DEBUG
         Serial.print(F("Read: bufferSize="));
@@ -300,6 +302,7 @@ AT_COMMANDS_ERRORS ATCommands::update()
             clearBuffer();
         }
     }
+    return AT_COMMANDS_SUCCESS;
 }
 
 /**
